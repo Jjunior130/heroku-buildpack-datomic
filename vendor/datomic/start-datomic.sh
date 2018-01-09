@@ -23,9 +23,11 @@ case ${STORAGE_TYPE} in
 
     DYNAMODB)
         # TODO run a check against DynamoDB
+        echo "Skipping check for proper dynamodb setup (not implemented)"
         ;;
 
     HEROKU_POSTGRES|POSTGRES)
+        echo "Establishing whether Postgres is properly setup..."
         ${SCRIPTS_HOME}/datomic-postgres-setup-checker.sh
         if [ $? -ne 0 ]
         then

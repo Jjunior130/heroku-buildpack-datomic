@@ -7,14 +7,17 @@ fi
 
 SQL_TRANSCRIPT=/tmp/sql-output.$$
 
+echo "Checking if postgres table exists yet.."
 psql ${DATABASE_URL} < ${SCRIPTS_HOME}/datomic-table-exists-query.sql > ${SQL_TRANSCRIPT}
 
 TABLE_EXISTS=$(grep '(1 row)' ${SQL_TRANSCRIPT})
 
 if [ -z "${TABLE_EXISTS}" ]
 then
+    echo "Postgres table exists, skipping creation"
     exit 0 # All good
 fi
+echo "Postgres table does not exist, will be created"
 
 if [ -z "${JDBC_DATABASE_USERNAME}" ]
 then
@@ -39,6 +42,7 @@ then
     cat ${SQL_TRANSCRIPT}
     exit 1
 fi
+echo "Postgres table created successfully"
 
 exit 0
 
