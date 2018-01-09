@@ -13,7 +13,7 @@ echo "Java max heap size set to '${DATOMIC_JAVA_XMX}'"
 
 if [ -z "${DATOMIC_JAVA_XMS}" ]
 then
-    DATOMIC_JAVA_XMS=256MB
+    DATOMIC_JAVA_XMS=256m
 fi
 echo "Java min heap size set to '${DATOMIC_JAVA_XMS}'"
 
