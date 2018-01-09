@@ -12,7 +12,7 @@ psql ${DATABASE_URL} < ${SCRIPTS_HOME}/datomic-table-exists-query.sql > ${SQL_TR
 
 TABLE_EXISTS=$(grep '(1 row)' ${SQL_TRANSCRIPT})
 
-if [ -z "${TABLE_EXISTS}" ]
+if [ -n "${TABLE_EXISTS}" ]
 then
     echo "Postgres table exists, skipping creation"
     exit 0 # All good
