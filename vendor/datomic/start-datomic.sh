@@ -44,7 +44,7 @@ DYNO_PROPERTIES=${PROPERTIES}.heroku
 
 # Discover the IP that this dyno exposes in the Space
 
-DYNO_IP=$(ip -4 -o addr show dev eth1 | awk '{print $4}' | cut -d/ -f1)
+DYNO_IP=$(ip -4 -o addr show dev eth0 | awk '{print $4}' | cut -d/ -f1)
 
 sed "s/^host=localhost/host=${DYNO_IP}/" ${PROPERTIES} > ${DYNO_PROPERTIES}
 
