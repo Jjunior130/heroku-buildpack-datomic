@@ -5,6 +5,18 @@ then
     SCRIPTS_HOME=/app/scripts
 fi
 
+if [ -z "${DATOMIC_JAVA_XMX}" ]
+then
+    DATOMIC_JAVA_XMX=2g
+fi
+echo "Java max heap size set to '${DATOMIC_JAVA_XMX}'"
+
+if [ -z "${DATOMIC_JAVA_XMS}" ]
+then
+    DATOMIC_JAVA_XMS=256MB
+fi
+echo "Java min heap size set to '${DATOMIC_JAVA_XMS}'"
+
 STORAGE_TYPE=${DATOMIC_STORAGE_TYPE:-"HEROKU_POSTGRES"}
 
 case ${STORAGE_TYPE} in
@@ -40,4 +52,4 @@ unset JAVA_OPTS
 
 # Ensure Datomic does not log passwords
 
-transactor -Ddatomic.printConnectionInfo=false -Xmx2g -Xms256m ${DYNO_PROPERTIES}
+transactor -Ddatomic.printConnectionInfo=false -Xmx${DATOMIC_JAVA_XMX} -Xms${DATOMIC_JAVA_XMS} ${DYNO_PROPERTIES}
