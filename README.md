@@ -117,8 +117,8 @@ This is forked from the official [Heroku buildpack](http://devcenter.heroku.com/
 
 Thanks to the following GitHub users for providing PRs
 
-- @matthavener [PR #1]
-- @a613 [PR #2]
+- [@matthavener](https://github.com/matthavener) [PR #1]
+- [@a613](https://github.com/a613) [PR #2]
 
 License
 -------
