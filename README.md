@@ -11,13 +11,13 @@ Heroku buildpack to start a Datomic Transactor
 
 The rest of this README explains the necessary configuration.
 
-> Please check out an associated [blog post](http://blog.opengrail.com/datomic/heroku/dynamodb/aws/2016/01/03/datomic-heroku-spaces.html) providing more background
+## Heroku pre-requisites (not free!)
 
-## Heroku pre-requisites
-
-This technology exploits the features of [Heroku Spaces](https://www.heroku.com/private-spaces) to securely inter-connect dynos. 
+This technology exploits the features of [Heroku Spaces](https://www.heroku.com/private-spaces) to securely inter-connect dynos.
 
 To use this buildpack you need to have access to Heroku Spaces. Outside of Heroku Spaces, Datomic security is not assured.
+
+> Please check out an associated [blog post](http://blog.opengrail.com/datomic/heroku/dynamodb/aws/2016/01/03/datomic-heroku-spaces.html) providing more background
 
 ## Configuring a custom buildpack
 
@@ -41,13 +41,13 @@ By default Datomic free will be started. *Data will not be stored between startu
 
 By default the version of Datomic is the latest published version with `0.9.5344` as a fallback if the latest version cannot be detected for some reason.
 
-You can optionally configure the version of Datomic you wish to deploy.
+You can also configure the version of Datomic you wish to deploy.
 
 ````heroku config:set DATOMIC_VERSION=version-number````
 
 ### Datomic Pro configuration
 
-You can get a free copy of the [Datomic Pro starter edition](http://www.datomic.com/get-datomic.html) or bring your supported license.
+You can get a copy of the [Datomic Pro starter edition which is free for 12 months](http://www.datomic.com/get-datomic.html) or bring your supported license.
 
 ````heroku config:set DATOMIC_LICENSE_PASSWORD=license-password````
 
