@@ -11,6 +11,8 @@ Heroku buildpack to start a Datomic Transactor
 
 The rest of this README explains the necessary configuration.
 
+> Please check out an associated [blog post](http://blog.opengrail.com/datomic/heroku/dynamodb/aws/2016/01/03/datomic-heroku-spaces.html) providing more background
+
 ## Heroku pre-requisites
 
 This technology exploits the features of [Heroku Spaces](https://www.heroku.com/private-spaces) to securely inter-connect dynos. 
@@ -101,16 +103,22 @@ Consult the [Datomic High Availability documentation](http://docs.datomic.com/ha
 
 ## ToDo
 
-- Enable further configuration such as JVM memory
+- [X] Enable further configuration such as JVM memory
 
-- support other SQL DBs [ postgres and Oracle on Amazon RDS, MySQL Heroku addons (cleardb and jawsdb) ]
+- [ ] support other SQL DBs [ postgres and Oracle on Amazon RDS, MySQL Heroku addons (cleardb and jawsdb) ]
 
-- support cassandra via Heroku addon (Instaclustr)
+- [ ] support cassandra via Heroku addon (Instaclustr)
 
 ## Basis
 
 This is forked from the official [Heroku buildpack](http://devcenter.heroku.com/articles/buildpack) for Java apps.
 
+## Contributors
+
+Thanks to the following GitHub users for providing PRs
+
+- @matthavener [PR #1]
+- @a613 [PR #2]
 
 License
 -------
