@@ -54,4 +54,4 @@ unset JAVA_OPTS
 
 # Ensure Datomic does not log passwords
 
-transactor -Ddatomic.printConnectionInfo=false -Xmx${DATOMIC_JAVA_XMX} -Xms${DATOMIC_JAVA_XMS} ${DYNO_PROPERTIES}
+transactor -Ddatomic.printConnectionInfo=true -Xmx${DATOMIC_JAVA_XMX} -Xms${DATOMIC_JAVA_XMS} ${DYNO_PROPERTIES}
