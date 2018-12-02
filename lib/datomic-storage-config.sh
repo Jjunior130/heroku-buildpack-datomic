@@ -9,7 +9,7 @@ SAMPLE_PROPERTIES_FILE=${BUILD_DIR}/datomic/config/samples/dev-transactor-templa
 
 configure_storage() {
 
-    echo -n "-----> Configuring Datomic to connect to ${STORAGE_TYPE}... "
+    echo -n "-----> Configuring Datomic to connect to DEV... "
 
     SAMPLE_PROPERTIES_FILE=${BUILD_DIR}/datomic/config/samples/dev-transactor-template.properties
 
