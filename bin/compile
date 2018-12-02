@@ -74,7 +74,11 @@ else
     jar xf datomic.zip
     mv datomic-pro-* ${BUILD_DIR}/datomic
     echo "done" # install is done
+    
+    # Configure storage
+    . ${BP_DIR}/lib/datomic-storage-config.sh
 
+    configure_storage
 fi
 
 cp ${BP_DIR}/vendor/datomic/* ${SCRIPTS_TARGET_DIR}
