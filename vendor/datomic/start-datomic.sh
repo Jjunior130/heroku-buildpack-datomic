@@ -27,7 +27,7 @@ DYNO_IP=$(ip -4 -o addr show dev eth0 | awk '{print $4}' | cut -d/ -f1)
 
 sed "s/^host=localhost/host=${DYNO_IP}/" ${PROPERTIES} > ${DYNO_PROPERTIES}
 
-set TRANSACTOR_URL="datomic:dev://${DYNO_IP}:4334/change-measurements?password=client"
+export TRANSACTOR_URL="datomic:dev://${DYNO_IP}:4334/change-measurements?password=client"
 
 unset JAVA_OPTS
 
