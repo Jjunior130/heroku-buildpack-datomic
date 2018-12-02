@@ -5,9 +5,18 @@
 
 OUTPUT_PROPERTIES_FILE=${SCRIPTS_TARGET_DIR}/transactor.properties
 
-echo -n "-----> Configuring Datomic to connect to DEV... "
-
 SAMPLE_PROPERTIES_FILE=${BUILD_DIR}/datomic/config/samples/dev-transactor-template.properties
+
+configure_storage() {
+
+    echo -n "-----> Configuring Datomic to connect to ${STORAGE_TYPE}... "
+
+    SAMPLE_PROPERTIES_FILE=${BUILD_DIR}/datomic/config/samples/dev-transactor-template.properties
+
+    cat ${SAMPLE_PROPERTIES_FILE} | configure_properties > ${OUTPUT_PROPERTIES_FILE}
+
+    echo "done"
+}
 
 configure_properties() {
     sed -e "s|^pid-file=.*|pid-file=transactor.pid|"                                  \
@@ -16,11 +25,4 @@ configure_properties() {
         -e "s|^storage-access=.*|storage-access=remote|" \
         -e "s|^h2-port=.*|h2-port=4335|" \
         -e "s|^license-key=.*|license-key=${DATOMIC_TRANSACTOR_KEY}|"
-    
 }
-
-cat ${SAMPLE_PROPERTIES_FILE} | configure_properties > ${OUTPUT_PROPERTIES_FILE}
-    
-echo "done"
-
-
