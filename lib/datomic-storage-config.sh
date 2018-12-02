@@ -19,10 +19,10 @@ configure_storage() {
 }
 
 configure_properties() {
-    sed -e "s|.*\(pid-file=\).*|\1pid-file=transactor.pid|"                         \
-        -e "s|.*\(storage-admin-password=\).*|\1storage-admin-password=admin|"      \
-        -e "s|.*\(storage-datomic-password=\).*|\1storage-datomic-password=client|" \
-        -e "s|.*\(storage-access=\).*|\1storage-access=remote|"                     \
-        -e "s|.*\(h2-port=\).*|\1h2-port=4335|"                                     \
+    sed -e "s|.*\(pid-file=\).*|\1transactor.pid|"                         \
+        -e "s|.*\(storage-admin-password=\).*|\1admin|"      \
+        -e "s|.*\(storage-datomic-password=\).*|\1client|" \
+        -e "s|.*\(storage-access=\).*|\1remote|"                     \
+        -e "s|.*\(h2-port=\).*|\14335|"                                     \
         -e "s|^license-key=.*|license-key=${DATOMIC_TRANSACTOR_KEY}|"
 }
