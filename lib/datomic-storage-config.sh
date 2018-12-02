@@ -5,20 +5,9 @@
 
 OUTPUT_PROPERTIES_FILE=${SCRIPTS_TARGET_DIR}/transactor.properties
 
-configure_sql() {
+echo -n "-----> Configuring Datomic to connect to DEV... "
 
-    [ -z "${DATABASE_URL}" ] && {
-        echo "You must set DATABASE_URL" && return 1
-    }
-
-    echo -n "-----> Configuring Datomic to connect to DEV... "
-
-    SAMPLE_PROPERTIES_FILE=${BUILD_DIR}/datomic/config/samples/dev-transactor-template.properties
-
-    cat ${SAMPLE_PROPERTIES_FILE} | configure_properties > ${OUTPUT_PROPERTIES_FILE}
-    
-    echo "done"
-}
+SAMPLE_PROPERTIES_FILE=${BUILD_DIR}/datomic/config/samples/dev-transactor-template.properties
 
 configure_properties() {
     sed -e "s|^pid-file=.*|pid-file=transactor.pid|"                                  \
@@ -29,3 +18,9 @@ configure_properties() {
         -e "s|^license-key=.*|license-key=${DATOMIC_TRANSACTOR_KEY}|"
     
 }
+
+cat ${SAMPLE_PROPERTIES_FILE} | configure_properties > ${OUTPUT_PROPERTIES_FILE}
+    
+echo "done"
+
+
